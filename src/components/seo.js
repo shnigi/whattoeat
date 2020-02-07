@@ -74,8 +74,8 @@ function SEO({ description, lang, meta, title }) {
 
 SEO.defaultProps = {
   lang: `en`,
-  meta: [],
-  description: ``,
+  meta: ['whattoeat', 'eat', 'eatapp', 'tindereat'],
+  description: `App to help decide what to eat.`,
 }
 
 SEO.propTypes = {
