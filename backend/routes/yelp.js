@@ -12,6 +12,7 @@ router.post("/business/search", async (req, res, next) => {
       search(
         latitude: $latitude,
         longitude: $longitude,
+        limit: 20
       ) {
       total
       business {
@@ -21,6 +22,9 @@ router.post("/business/search", async (req, res, next) => {
         review_count
         price
         photos
+        categories {
+          title
+        }
         hours {
           is_open_now
           open {

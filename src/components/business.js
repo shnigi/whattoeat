@@ -4,7 +4,6 @@ const Business = ({data}) => {
     console.log('data', data);
     const {name, url, price, location, photos} = data;
     console.log('name', name);
-    
     return (
         <div
             style={{
