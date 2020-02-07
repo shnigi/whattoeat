@@ -1,35 +1,13 @@
 import React, { useState, useEffect } from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
 import { usePosition } from '../components/usePosition';
 import postData from '../utils/postData';
 import Swipeable from "react-swipy";
 
 import Card from "../components/Card";
-import Button from "../components/Button";
-
-
-const appStyles = {
-  height: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "100%",
-  minHeight: "100vh",
-  fontFamily: "sans-serif",
-  overflow: "hidden"
-};
-
-const wrapperStyles = {
-  position: "relative",
-  width: "800px",
-  height: "800px",
-};
-const actionsStyles = {
-  display: "flex",
-  justifyContent: "space-between",
-  marginTop: 12
-};
+import {PrimaryButton, SecondaryButton} from "../components/Button";
+import appStyles from "./style.module.css";
+import './globalStyles.css';
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default () => {
   const {latitude, longitude, error} = usePosition();
@@ -47,28 +25,28 @@ export default () => {
         longitude: longitude
       });
       setCards(data.search.business);
-      console.log('data', data);
     }
     fetchMyAPI();
   }, [latitude, longitude]);
+
+  if (error) return <p>Position not allowed!</p>;
+  if (!cards || cards.length === 0) return <LoadingSpinner />;
+
   return (
-    <div style={appStyles}>
-      <div style={wrapperStyles}>
+    <div className={appStyles.appStyles}>
+      <div className={appStyles.wrapperStyles}>
         {cards.length > 0 && (
-          <div style={wrapperStyles}>
-            <Swipeable
-              buttons={({ right, left }) => (
-                <div style={actionsStyles}>
-                  <Button onClick={left}>Reject</Button>
-                  <Button onClick={right}>Accept</Button>
+          <Swipeable
+          buttons={({ right, left }) => (
+            <div className={appStyles.buttonContainer}>
+                <SecondaryButton onClick={left}>Reject</SecondaryButton>
+                <PrimaryButton onClick={right}>Accept</PrimaryButton>
                 </div>
               )}
               onAfterSwipe={remove}
-            >
+              >
               <Card cards={cards} length={cards.length}>test</Card>
             </Swipeable>
-            {/* {cards.length > 1 && <Card zIndex={-1}>{cards[1]}</Card>} */}
-          </div>
         )}
         {cards.length <= 1 && <Card zIndex={-2}>No more cards</Card>}
       </div>

@@ -1,0 +1,21 @@
+.card {
+    border-radius: 10px;
+    width: 40vw;
+    height: 80vh;
+    min-height: 400px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    color: white;
+    text-shadow: 2px 2px 2px #000000;
+    padding: 20px;
+    background-position: 50% 50%;
+}
+
+.card h1 {
+    text-align: center;
+}

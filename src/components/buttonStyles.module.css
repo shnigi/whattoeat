@@ -1,0 +1,19 @@
+.commonButtonStyles {
+    color: white;
+}
+
+.primaryButton {
+    padding: 16px 24px;
+    background: green;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+.secondaryButton {
+    padding: 16px 24px;
+    background: #da481c;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}

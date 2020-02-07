@@ -1,17 +1,21 @@
 import React from "react";
+import buttonStyles from "./buttonStyles.module.css";
 
-const buttonStyles = {
-    padding: "16px 24px",
-    background: "whitesmoke",
-    cursor: "pointer",
-    border: "none",
-    borderRadius: 3
-};
+const { primaryButton, secondaryButton, commonButtonStyles } = buttonStyles;
 
-const Button = ({ children, onClick }) => (
-    <button onClick={onClick} style={{ ...buttonStyles }}>
+const PrimaryButton = ({ children, onClick }) => (
+    <button onClick={onClick} className={`${primaryButton} ${commonButtonStyles}`}>
         {children}
     </button>
 );
 
-export default Button;
+const SecondaryButton = ({ children, onClick }) => (
+    <button onClick={onClick} className={`${secondaryButton} ${commonButtonStyles}`}>
+        {children}
+    </button>
+);
+
+export {
+    PrimaryButton,
+    SecondaryButton,
+}

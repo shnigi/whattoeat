@@ -1,0 +1,27 @@
+.appStyles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+  overflow: hidden
+}
+
+.wrapperStyles {
+  position: relative;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.actionStyles {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
