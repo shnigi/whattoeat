@@ -19,7 +19,7 @@ export default () => {
 
 
   const fetchMyAPI = async () => {
-    const data = await postData('http://localhost:3000/yelp/business/search', {
+    const data = await postData('https://yelpapi.paska.xyz/yelp/business/search', {
       latitude: latitude,
       longitude: longitude,
       offset
