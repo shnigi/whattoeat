@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { usePosition } from '../components/usePosition';
 import postData from '../utils/postData';
 import Swipeable from "react-swipy";
+import { navigate } from "gatsby"
 
 import Card from "../components/Card";
 import {PrimaryButton, SecondaryButton} from "../components/Button";
@@ -14,6 +15,7 @@ export default () => {
   const {latitude, longitude, error} = usePosition();
   const [cards, setCards] = useState([]);
   const [offset, setoffset] = useState(0)
+  const [loading, setLoading] = useState(false);
 
 
   const fetchMyAPI = async () => {
@@ -34,13 +36,27 @@ export default () => {
     }
   }
 
+  const swipeRightHandler = (event) => {
+    const website = cards[0].url;
+    if (event === 'right') {
+      setLoading(true);
+      window.location.href = website;
+      // navigate(
+      //   "/restaurant/",
+      //   {
+      //     state: { cards },
+      //   }
+      // )
+    }
+  };
+
 
   useEffect(() => {
     fetchMyAPI();
   }, [latitude, longitude, offset]);
 
   if (error) return <p>Position not allowed!</p>;
-  if (!cards || cards.length === 0) return <LoadingSpinner />;
+  if (!cards || cards.length === 0 || loading) return <LoadingSpinner />;
 
   return (
     <div className={appStyles.appStyles}>
@@ -55,8 +71,9 @@ export default () => {
                 </div>
               )}
               onAfterSwipe={remove}
+              onSwipe={(event) => swipeRightHandler(event)}
               >
-              <Card cards={cards}>test</Card>
+              <Card cards={cards}></Card>
             </Swipeable>
             {cards.length > 1 && <SingleCard zIndex={-1} cards={cards}></SingleCard>}
           </div>
