@@ -2,7 +2,6 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
@@ -14,14 +13,16 @@
   height: 700px;
 }
 
-.actionStyles {
+.buttonContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 12px;
 }
 
-.buttonContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
+/* Mobile Styles */
+@media only screen and (max-width: 550px) {
+  .wrapperStyles {
+      width: 330px;
+      height: 500px;
+  }
 }

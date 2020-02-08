@@ -20,3 +20,11 @@
 .card h1 {
     text-align: center;
 }
+
+/* Mobile Styles */
+@media only screen and (max-width: 550px) {
+  .card {
+      width: 330px;
+      height: 500px;
+  }
+}
