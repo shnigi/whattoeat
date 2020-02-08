@@ -8,11 +8,11 @@ const client = new GraphQLClient(yelpApiUrl, {
 
 router.post("/business/search", async (req, res, next) => {
   const query = `
-    query search($latitude: Float!, $longitude: Float!) {
+    query search($latitude: Float!, $longitude: Float!, $offset: Int!) {
       search(
         latitude: $latitude,
         longitude: $longitude,
-        limit: 20
+        offset: $offset
       ) {
       total
       business {

@@ -13,22 +13,31 @@ import SingleCard from '../components/SingleCard';
 export default () => {
   const {latitude, longitude, error} = usePosition();
   const [cards, setCards] = useState([]);
+  const [offset, setoffset] = useState(0)
+
+
+  const fetchMyAPI = async () => {
+    const data = await postData('http://localhost:3000/yelp/business/search', {
+      latitude: latitude,
+      longitude: longitude,
+      offset
+    });
+    setCards(data.search.business);
+  }
+
   const remove = () => {
     if (cards.length > 0) {
       setCards(cards.slice(1, cards.length));
+      if (cards.length === 1) {
+        setoffset((offset + 1) + 20);
+      }
     }
   }
 
+
   useEffect(() => {
-    async function fetchMyAPI() {
-      const data = await postData('http://localhost:3000/yelp/business/search', {
-        latitude: latitude,
-        longitude: longitude
-      });
-      setCards(data.search.business);
-    }
     fetchMyAPI();
-  }, [latitude, longitude]);
+  }, [latitude, longitude, offset]);
 
   if (error) return <p>Position not allowed!</p>;
   if (!cards || cards.length === 0) return <LoadingSpinner />;
