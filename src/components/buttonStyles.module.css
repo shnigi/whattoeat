@@ -1,19 +1,13 @@
 .commonButtonStyles {
     color: white;
-}
-
-.primaryButton {
-    padding: 16px 24px;
-    background: green;
+    border: 10px solid #f3f3f3;
+    border-radius: 100px;
+    background: #fff;
     cursor: pointer;
-    border: none;
-    border-radius: 3px;
-}
-
-.secondaryButton {
-    padding: 16px 24px;
-    background: #da481c;
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
 }

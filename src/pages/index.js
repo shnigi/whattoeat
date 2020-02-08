@@ -50,8 +50,8 @@ export default () => {
           <Swipeable
           buttons={({ right, left }) => (
             <div className={appStyles.buttonContainer}>
-                <SecondaryButton onClick={left}>Reject</SecondaryButton>
-                <PrimaryButton onClick={right}>Accept</PrimaryButton>
+                <SecondaryButton onClick={left}></SecondaryButton>
+                <PrimaryButton onClick={right}></PrimaryButton>
                 </div>
               )}
               onAfterSwipe={remove}
