@@ -8,6 +8,7 @@ import {PrimaryButton, SecondaryButton} from "../components/Button";
 import appStyles from "./style.module.css";
 import './globalStyles.css';
 import LoadingSpinner from "../components/LoadingSpinner";
+import SingleCard from '../components/SingleCard';
 
 export default () => {
   const {latitude, longitude, error} = usePosition();
@@ -36,6 +37,7 @@ export default () => {
     <div className={appStyles.appStyles}>
       <div className={appStyles.wrapperStyles}>
         {cards.length > 0 && (
+          <div className={appStyles.wrapperStyles}>
           <Swipeable
           buttons={({ right, left }) => (
             <div className={appStyles.buttonContainer}>
@@ -45,8 +47,10 @@ export default () => {
               )}
               onAfterSwipe={remove}
               >
-              <Card cards={cards} length={cards.length}>test</Card>
+              <Card cards={cards}>test</Card>
             </Swipeable>
+            {cards.length > 1 && <SingleCard zIndex={-1} cards={cards}></SingleCard>}
+          </div>
         )}
         {cards.length <= 1 && <Card zIndex={-2}>No more cards</Card>}
       </div>

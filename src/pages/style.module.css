@@ -1,23 +1,23 @@
 .appStyles {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 100vh;
-  font-family: sans-serif;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .wrapperStyles {
   position: relative;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
+  width: 250px;
+  height: 250px;
 }
 
 .actionStyles {
   display: flex;
   justify-content: space-between;
-  margin-top: 12;
+  margin-top: 12px;
 }
 
 .buttonContainer {
