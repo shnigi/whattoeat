@@ -13,6 +13,8 @@ router.post("/business/search", async (req, res, next) => {
         latitude: $latitude,
         longitude: $longitude,
         offset: $offset
+        open_now: true
+        term: "food"
       ) {
       total
       business {
