@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const yelpApiUrl = "https://api.yelp.com/v3/graphql";
-import { GraphQLClient } from "graphql-request";
+const { GraphQLClient } = require("graphql-request");
 const client = new GraphQLClient(yelpApiUrl, {
   headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}` },
 });
