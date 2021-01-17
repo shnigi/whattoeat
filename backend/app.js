@@ -8,11 +8,11 @@ const cors = require("cors");
 const indexRouter = require("./routes/index");
 const yelpRouter = require("./routes/yelp");
 const app = express();
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors());
 app.use("/", indexRouter);
 app.use("/yelp", yelpRouter);
 app.use(function (req, res, next) {
