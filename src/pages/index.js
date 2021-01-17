@@ -14,13 +14,13 @@ import SingleCard from '../components/SingleCard';
 export default () => {
   const {latitude, longitude, error} = usePosition();
   const [cards, setCards] = useState([]);
-  const [offset, setoffset] = useState(0)
+  const [offset, setoffset] = useState(0);
   const [loading, setLoading] = useState(false);
 
 
   const fetchMyAPI = async () => {
-    // const data = await postData('https://yelpapi.paska.xyz/yelp/business/search', {
-    const data = await postData('http://localhost:3334/yelp/business/search', {
+    const data = await postData('https://yelpapi.paska.xyz/yelp/business/search', {
+    // const data = await postData('http://localhost:3334/yelp/business/search', {
       latitude: latitude,
       longitude: longitude,
       offset
