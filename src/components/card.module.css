@@ -5,21 +5,36 @@
   user-select: none;
   position: absolute;
   display: flex;
-  align-items: center;
-  justify-content: center;
   top: 0;
   background-position: 50% 50%;
   color: white;
   text-shadow: 2px 2px 2px #000000;
   background-size: cover;
-  text-align: center;
   border-radius: 10px;
   flex-direction: column;
   box-shadow: 0px 3px 17px 0px rgba(0,0,0,0.25);
+  justify-content: flex-end;
+}
+
+.infoContainer {
+  width: 100% - 35px;
+  padding-left: 35px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: rgba(107, 123, 144, 0.7);
 }
 
 .card h1 {
-    text-align: center;
+  font-size: 35px;
+}
+
+.rating {
+  font-size: 25px;
+}
+
+.foodStyle {
+  list-style: none;
+  padding: 0px;
 }
 
 /* Mobile Styles */
