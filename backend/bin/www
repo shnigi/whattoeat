@@ -14,7 +14,7 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3334');
 app.set('port', port);
-console.log(`App starting on port ${process.env.PORT}`);
+console.log(`App starting on port ${port}`);
 
 
 /**
