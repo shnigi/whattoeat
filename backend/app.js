@@ -8,7 +8,13 @@ const cors = require("cors");
 const indexRouter = require("./routes/index");
 const yelpRouter = require("./routes/yelp");
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://whattoeat.paska.xyz',
+  optionsSuccessStatus: 200 // For legacy browser support
+};
+
+app.use(cors(corsOptions));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
