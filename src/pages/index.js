@@ -11,11 +11,6 @@ import './globalStyles.css';
 import LoadingSpinner from "../components/LoadingSpinner";
 import SingleCard from '../components/SingleCard';
 
-
-function shuffleArray(array) {
-  console.log('shuffleRray', array);
-}
-
 export default () => {
   const {latitude, longitude, error} = usePosition();
   const [cards, setCards] = useState([]);
